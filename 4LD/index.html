@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+-->
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta itemprop="description" content="Client-side WebRTC code samples">
+    <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
+    <meta itemprop="name" content="WebRTC code samples">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+
+    <title>4 LD</title>
+
+
+    <style>
+        :root {
+            --slider: 0;
+        }
+        .none {
+            -webkit-filter: none;
+            filter: none;
+        }
+        .blur {
+            -webkit-filter: blur(calc(var(--slider) * 0.1px));
+            filter: blur(calc(var(--slider) * 0.1px));
+        }
+        .grayscale {
+            -webkit-filter: grayscale(var(--slider));
+            filter: grayscale(var(--slider));
+        }
+        .invert {
+            -webkit-filter: invert(var(--slider));
+            filter: invert(var(--slider));
+        }
+        .sepia {
+            -webkit-filter: sepia(var(--slider));
+            filter: sepia(var(--slider));
+        }
+        .opacity {
+            -webkit-filter: opacity(calc(var(--slider) * 1%));
+            filter: opacity(calc(var(--slider) * 1%));
+        }
+        .brightness {
+            -webkit-filter: brightness(calc(var(--slider) * 5%));
+            filter: brightness(calc(var(--slider) * 5%));
+        }
+        button#snapshot {
+            margin: 0 10px 25px 0;
+            width: 110px;
+        }
+        video {
+            object-fit: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="container">
+
+    <h1>
+	<span>4 LD</span>
+    </h1>
+
+    <video playsinline autoplay></video>
+
+    <label for="filter">Filter: </label>
+    <select id="filter">
+        <option value="none">None</option>
+        <option value="blur">Blur</option>
+        <option value="grayscale">Grayscale</option>
+        <option value="invert">Invert</option>
+        <option value="sepia">Sepia</option>
+        <option value="opacity">Opacity</option>
+        <option value="brightness">Brightness</option>
+    </select>
+
+	<input type="range" id="sliderRange" value="0" onchange="sliderFunction()">
+    <button id="snapshot">Take snapshot</button>
+
+    <canvas></canvas>
+</div>
+
+<script>
+function sliderFunction()
+{
+	var x = document.getElementById("sliderRange").value;
+	document.documentElement.style.setProperty('--slider', x);	 	
+}
+</script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="js/main.js" async></script>
+
+</body>
+</html>

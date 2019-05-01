@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8/>
+<title>Lab 1. Introduction to HTML5 and HLS</title>
+  
+  <!--
+  Embed needed js libraries for video player. Note, libraries needs to be hosted on your server, under /js folder.
+   -->
+  <!--
+  Location for CSS if needed. Note, cascade style sheets needs to be hosted on your server, under /css folder.
+  -->
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+   
+</head>
+<body>
+  <video-js id="my_video_1" class="vjs-default-skin" width="640" height="268">
+    <source src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+  </video-js>
+  
+  <button onclick="play()">Play</button> 
+  <button onclick="pause()">Pause</button>
+  <button onclick="stop()">Stop</button>  
+  <button onclick="forward5()">Jump to 5 sec forward</button>
+  <button onclick="backwards5()">Jump to 5 sec backwards</button>	
+  
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  
+  <script>
+    var player = videojs('my_video_1');
+    function play() { 
+    player.play();
+    } 
+    function pause() {
+      player.pause();
+    }
+    function stop(){
+      player.currentTime(0);
+      player.pause();
+    }
+    function forward5(){
+      player.currentTime(player.currentTime() + 5);
+    }
+    function backwards5(){
+      player.currentTime(player.currentTime() - 5);
+    }
+  </script>
+  
+</body>
+</html>
