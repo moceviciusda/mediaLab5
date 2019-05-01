@@ -34,3 +34,7 @@ Option B:
 The general requirements for option A & B.
   - Test application on at least two browsers and specify in README.md which version and browser it was.
   - To pass this lab, you have to fully complete an option.  
+  
+# Browsers tested
+  - Google Chrome 73.0.3683.103
+  - Microsoft Edge 42.17134.1.0
